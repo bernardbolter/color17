@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:200,400,400i,800');
+
+$font: 'Nunito Sans', sans-serif;
+
+html {
+  font-family: $font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// COLORS
+
+$red: #A41E22;
+$orange: #F09120;
+$yellow: #E1B324;
+$olive: #869F66;
+$green: #4DA446;
+$aqua: #1D9F97;
+$colbalt: #3482AD;
+$blue: #3B5BA9;
+$purple: #674D8C;
+$dark: #393A3A;
