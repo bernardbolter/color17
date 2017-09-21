@@ -1,10 +1,34 @@
-import { observable } from 'mobx';
+import { observable, action } from 'mobx';
+import axios from 'axios';
 
 class Store {
+  // Artowrk variables
+  @observable artwork = [];
+  @observable isLoading = false;
   // Navigation Variables
-  @observable location = '';
-  @observable openNewsletter = false;
+  @observable toggleAbout = false;
+  @observable togglePrints = false;
+  @observable toggleSearch = false;
+  @observable toggleSorting = false;
+  @observable olderChecked = true;
+  @observable newerChecked = false;
+  @observable historyFilter = '';
 
+  @action loadArtwork() {
+    this.isLoading = true;
+    function isColorHistory(art) {
+      return art.series === 'ach';
+    }
+    axios.get('http://artwork.bernardbolter.com/wp-json/wp/v2/artwork?per_page=100')
+      .then(results =>  {
+        this.artwork = results.data.filter(isColorHistory);
+        console.log(results.data);
+        this.isLoading = false;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 }
 
 export var storeData = new Store();

@@ -7,15 +7,12 @@ import Nav from './components/Nav/Nav';
 
 import { storeData } from './store';
 
-import { createHistory } from 'history';
-
 import createBrowserHistory from 'history/createBrowserHistory';
 import { Provider } from 'mobx-react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { RouterStore, syncHistoryWithStore } from 'mobx-react-router';
+import { Router, Route } from 'react-router-dom';
+import { RouterStore } from 'mobx-react-router';
 
-import Home from './components/Home/Home';
-import Link from './components/Link/Link';
+import Artwork from './components/Artwork/Artwork';
 import registerServiceWorker from './registerServiceWorker';
 
 const browserHistory = createBrowserHistory();
@@ -32,8 +29,7 @@ const Root = () => {
       <Router history={browserHistory}>
         <div className="container">
           <Nav />
-          <Route exact path="/" component={Home} />
-          <Route path="/link" component={Link} />
+          <Route exact path="/" component={Artwork} />
         </div>
       </Router>
     </Provider>
