@@ -16,6 +16,10 @@ class Artwork extends Component {
     return (
       <div className="artwork">
         <h1>Artwork</h1>
+          {this.props.store.artwork.slice().map( art => (
+                <h2 key={art.id}>{art.title.rendered}</h2>
+              ))
+            }
       </div>
     );
   }

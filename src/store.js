@@ -10,18 +10,20 @@ class Store {
   @observable togglePrints = false;
   @observable toggleSearch = false;
   @observable toggleSorting = false;
-  @observable olderChecked = true;
+  @observable randomChecked = true;
+  @observable olderChecked = false;
   @observable newerChecked = false;
   @observable historyFilter = '';
 
   @action loadArtwork() {
     this.isLoading = true;
     function isColorHistory(art) {
+      console.log(art.series);
       return art.series === 'ach';
     }
     axios.get('http://artwork.bernardbolter.com/wp-json/wp/v2/artwork?per_page=100')
       .then(results =>  {
-        this.artwork = results.data.filter(isColorHistory);
+        this.artwork = results.data.filter(art => art.series === 'ach');
         console.log(results.data);
         this.isLoading = false;
       })
