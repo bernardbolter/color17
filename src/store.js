@@ -6,9 +6,13 @@ class Store {
   @observable artwork = [];
   @observable isLoading = false;
   // Navigation Variables
-  @observable toggleAbout = false;
-  @observable togglePrints = false;
-  @observable toggleSearch = false;
+  @observable navMenuButton = false;
+  @observable sanFranciscoButton = false;
+  @observable berlinButton = false;
+  @observable aboutButton = false;
+  @observable printsButton = false;
+  @observable switchButton = false;
+
   @observable toggleSorting = false;
   @observable randomChecked = true;
   @observable olderChecked = false;
@@ -30,6 +34,36 @@ class Store {
       .catch(function (error) {
         console.log(error);
       });
+  }
+
+  @action toggleNavMenu = () => {
+    this.navMenu = !this.navMenu;
+    console.log('show nav menu');
+  }
+
+  @action toggleSF = () => {
+    this.sanFranciscoButton = !this.sanFranciscoButton;
+    console.log('show sf');
+  }
+
+  @action toggleBerlin = () => {
+    this.berlinButton = ! this.berlinButton;
+    console.log('show berlin');
+  }
+
+  @action toggleAbout = () => {
+    this.aboutButton = !this.aboutButton;
+    console.log('show about');
+  }
+
+  @action togglePrints = () => {
+    this.printsButton = !this.printsButton;
+    console.log('show prints');
+  }
+
+  @action toggleSwitch = () => {
+    this.switchButton = !this.switchButton;
+    console.log('show switch');
   }
 }
 
