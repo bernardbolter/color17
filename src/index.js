@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 
 import 'normalize.css';
 
+import Logo from './components/Logo/Logo';
 import Nav from './components/Nav/Nav';
+import Footer from './components/Footer/Footer';
 
 import { storeData } from './store';
 
@@ -12,6 +14,7 @@ import { Provider } from 'mobx-react';
 import { Router, Route } from 'react-router-dom';
 import { RouterStore } from 'mobx-react-router';
 
+import Art from './components/Art/Art';
 import Artwork from './components/Artwork/Artwork';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -28,8 +31,11 @@ const Root = () => {
     <Provider {...stores}>
       <Router history={browserHistory}>
         <div className="container">
+          <Logo />
           <Nav />
           <Route exact path="/" component={Artwork} />
+          <Route path="/:artwork" component={Art} />
+          <Footer />
         </div>
       </Router>
     </Provider>
