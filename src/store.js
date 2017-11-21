@@ -37,7 +37,7 @@ class Store {
   }
 
   @action toggleNavMenu = () => {
-    this.navMenu = !this.navMenu;
+    this.navMenuButton = !this.navMenuButton;
     console.log('show nav menu');
   }
 

@@ -8,10 +8,20 @@
 .nav-button
   width: 40px
   height: 40px
-  position: absolute
+  position: fixed
   top: 0
   right: 0
   background: $nav-background
+  #nav-line-1
+    transition: all 1s ease-in-out
+  #nav-line-2
+    transition: all 1s ease-in-out
+    opacity: 1
+  #nav-line-3
+    transition: all 1s ease-in-out
+  #nav-line-4
+    transition: all 1s ease-in-out
+    opacity: 1
 
   a
     width: 40px
@@ -27,3 +37,21 @@
       stroke: $dark
       stroke-width: 1.5px
       stroke-linecap: round
+
+.nav-button-open
+  #nav-line-1
+    transition: all 1s ease-in-out
+    transform: rotate(315deg) translate(-10px, 14px)
+    stroke-width: 3px
+  #nav-line-2
+    transition: all 1s ease-in-out
+    transform: rotate(90deg)
+    opacity: 0
+  #nav-line-3
+    transition: all 1s ease-in-out
+    transform: rotate(-315deg) translate(5px, -14px)
+    stroke-width: 3px
+  #nav-line-4
+    transition: all 1s ease-in-out
+    transform: rotate(-90deg)
+    opacity: 0
