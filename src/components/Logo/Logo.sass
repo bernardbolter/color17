@@ -1,8 +1,24 @@
 @import '../../variables.scss'
 
 .logo
-  display: flex
-  flex-direction: row
-  align-items: center
-  margin: 10px 0 0 10px
   width: 200px
+  position: fixed
+  z-index: 200
+  top: 10px
+  left: 5%
+
+  svg
+    width: 100%
+
+.logo-tagline
+  margin: 0
+  padding: 0
+  font-size: 12px
+  font-weight: 400
+  color: $dark
+  opacity: 0.8
+  transition: opacity 0.3s ease-in 0.3s
+
+.logo-tagline-on
+  opacity: 0.3
+  transition: opacity 0.3s ease-in 0.5s

@@ -19,6 +19,9 @@ class Store {
   @observable newerChecked = false;
   @observable historyFilter = '';
 
+  // Other Variables
+  @observable currentCity = 'San Francisco';
+
   @action loadArtwork() {
     this.isLoading = true;
     function isColorHistory(art) {

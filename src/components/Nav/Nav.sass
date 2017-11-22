@@ -4,54 +4,95 @@
   width: 100%
   margin: 0
   padding: 0
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
 
 .nav-button
   width: 40px
   height: 40px
   position: fixed
+  z-index: 200
   top: 0
   right: 0
-  background: $nav-background
-  #nav-line-1
-    transition: all 1s ease-in-out
-  #nav-line-2
-    transition: all 1s ease-in-out
-    opacity: 1
-  #nav-line-3
-    transition: all 1s ease-in-out
-  #nav-line-4
-    transition: all 1s ease-in-out
-    opacity: 1
+  background: none
+  cursor: pointer
+  border: none
 
-  a
-    width: 40px
-    height: 40px
-    display: flex
-    flex-direction: row
-    justify-content: center
-    align-items: center
-    cursor: pointer
+  &:focus
+    outline: none
 
-  svg
-    line
-      stroke: $dark
-      stroke-width: 1.5px
-      stroke-linecap: round
+  span
+    display: block
+    position: absolute
+    height: 2px
+    left: 7px
+    border-radius: 2px
+    opacity: 1
+    background: $menu-color
+    transition: top 0.2s ease-in 0.25s
+
+  span:nth-child(odd)
+    width: 23px
+
+  span:nth-child(even)
+    width: 17px
+
+  span:nth-child(1)
+    top: 9px
+    transform: rotate(0deg)
+    transition: transform 0.22s ease-in, top 0.1s ease-in 0.25s
+
+  span:nth-child(2)
+    top: 16px
+    transition: opacity 0.22s ease-in, top 0.1s ease-in 0.25s
+
+  span:nth-child(3)
+    top: 23px
+    transform: rotate(0deg)
+    transition: transform 0.22s ease-in, top 0.1s ease-in 0.25s
+
+  span:nth-child(4)
+    top: 30px
+    transition: opacity 0.22s ease-in, top 0.1s ease-in 0.25s
 
 .nav-button-open
-  #nav-line-1
-    transition: all 1s ease-in-out
-    transform: rotate(315deg) translate(-10px, 14px)
-    stroke-width: 3px
-  #nav-line-2
-    transition: all 1s ease-in-out
-    transform: rotate(90deg)
+
+  span:nth-child(1)
+    top: 20px
+    transform: rotate(225deg)
+    transition: transform 0.22s ease-in 0.1s, top 0.2s ease-in
+
+  span:nth-child(2)
+    top: 20px
     opacity: 0
-  #nav-line-3
-    transition: all 1s ease-in-out
-    transform: rotate(-315deg) translate(5px, -14px)
-    stroke-width: 3px
-  #nav-line-4
-    transition: all 1s ease-in-out
-    transform: rotate(-90deg)
+    transition: opacity 0.22s ease-in, top 0.2s ease-in
+
+  span:nth-child(3)
+    top: 20px
+    transform: rotate(135deg)
+    transition: transform 0.22s ease-in 0.1s, top 0.2s ease-in
+
+  span:nth-child(4)
+    top: 20px
     opacity: 0
+    transition: opacity 0.22s ease-in, top 0.2s ease-in
+
+.nav-menu
+  position: fixed
+  background: $nav-background
+  opacity: 0.9
+  width: 90%
+  margin: 0
+  padding: 60px 5%
+  top: -323px
+  left: calc(100% - 40px)
+  z-index: 100
+  transition: top 1s ease-in-out, left 1s ease-in-out
+  border-bottom: none
+
+.nav-menu-open
+  left: 0
+  top: 0
+  transition: top 1s ease-in-out, left 1s ease-in-out
+  border-bottom: 1px solid $dark
