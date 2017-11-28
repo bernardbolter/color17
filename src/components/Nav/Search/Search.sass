@@ -1,3 +1,56 @@
 @import '../../../variables.scss'
 
 .search
+  width: 100%
+  margin: 20px 0
+
+.search-bar
+  width: 100%
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+
+  input
+    width: 100%
+    background: white
+    border: 1px solid $dark
+    font-size: 14px
+    padding: 5px 10px
+    outline: none
+
+  input::placeholder
+    font-size: 12px
+    opacity: 0.5
+
+.search-glass
+  width: 20px
+  height: 20px
+  padding: 0
+  margin: 0 15px 0 0
+
+  svg
+    fill: $dark
+
+.close-filter
+  width: 20px
+  height: 20px
+  margin: 0 0 0 15px
+  padding: 0
+
+  svg
+    fill: $dark
+    opacity: 0.9
+    cursor: pointer
+
+.close-filter-on
+  svg
+    fill: $red
+
+#search-message
+  font-size: 12px
+  font-weight: 800
+  text-align: right
+  color: $red
+  opacity: 0.8
+  margin: 5px 30px 0 0

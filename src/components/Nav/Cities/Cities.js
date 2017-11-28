@@ -10,12 +10,30 @@ class Cities extends Component {
 
   render() {
     return (
-      <div className="links">
+      <div className="cities">
         <p>choose a city:</p>
-        <a onClick={this.props.store.toggleSF} className={this.props.store.sanFranciscoButton ? 'link-sf link-sf-open' : 'link-sf'}>San Francisco</a>
-        <a onClick={this.props.store.toggleBerlin} className={this.props.store.toggleBerlin ? 'link-berlin link-berlin-open' : 'link-berlin'}>Berlin</a>
+          <div className='check-cities'>
+            <label htmlFor='sf' className='check-sf'>
+              <span>San Francisco </span>
+              <input type='checkbox' id='sf' value='sf' checked={this.props.store.sanFranciscoChecked} onChange={this._toggleSF} />
+            </label>
+          </div>
+          <div className='check-cities'>
+            <label htmlFor='berlin' className='check-berlin'>
+              <span>Berlin </span>
+              <input type='checkbox' id='berlin' value='berlin' checked={this.props.store.berlinChecked} onChange={this._toggleBerlin} />
+            </label>
+          </div>
       </div>
     );
+  }
+
+  _toggleSF = () => {
+    this.props.store.sanFranciscoChecked = !this.props.store.sanFranciscoChecked;
+  }
+
+  _toggleBerlin = () => {
+    this.props.store.berlinChecked = !this.props.store.berlinChecked;
   }
 }
 

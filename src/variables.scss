@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:200,400,400i,800');
+@import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:300,400,800');
 
-$font: 'Nunito Sans', sans-serif;
+$font: 'Barlow Semi Condensed', sans-serif;
 
 html {
   font-family: $font;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
 }
 
 // COLORS
@@ -23,3 +24,4 @@ $dark: #393A3A;
 
 $nav-background: #ECECEC;
 $menu-color: #717171;
+$error-red: #BE4352;

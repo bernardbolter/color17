@@ -2,10 +2,54 @@
 
 .switch
   width: 50%
+  margin: 20px 0 0 0
+
+  p
+    font-size: 10px
+    color: $dark
+    padding: 0
+    margin: 10px 0 3px 0
+
+.switch-container
   border-top: 1px solid $dark
   border-bottom: 1px solid $dark
   display: flex
   flex-direction: row
   justify-content: space-between
-  margin: 10px 0
-  padding: 10px 0
+  align-items: center
+  margin: 0
+  padding: 5px 0 8px
+  cursor: pointer
+
+  p
+    font-size: 15px
+    color: $dark
+    font-weight: 800
+    text-transform: uppercase
+    cursor: pointer
+    opacity: 1
+    transition: opacity 0.2s ease-in
+
+    &:hover
+      opacity: 0.7
+      transition: opacity 0.2s ease-in
+
+.switch-svg
+  margin-top: 5px
+
+  path
+    fill: rgba(255,255,255,0.4)
+    stroke: $dark
+    stroke-width: 1.5px
+
+  circle
+    fill: $dark
+    stroke: none
+    transform: translate(0px, 0px)
+    transition: transform 0.3s ease-in
+
+
+.switch-svg-on
+  circle
+    transform: translate(16px, 0px)
+    transition: transform 0.2s ease-in

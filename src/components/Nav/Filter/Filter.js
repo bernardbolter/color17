@@ -11,24 +11,24 @@ class Filter extends Component {
   render() {
     return (
       <div className="filter">
-        <p>sort by::</p>
-        <div className='nav-random'>
+        <p>sort by:</p>
+        <div className='nav-radios nav-random'>
           <label htmlFor='random' className='sort-label check-random'>
             <span>random </span>
             <input type='checkbox' id='random' value='random' checked={this.props.store.randomChecked} onChange={this._toggleSorting} />
           </label>
         </div>
 
-        <div className='nav-older'>
+        <div className='nav-radios nav-older'>
           <label htmlFor='older' className='sort-label check-older'>
-            <span>older </span>
+            <span>oldest </span>
             <input type='checkbox' id='older' value='older' checked={this.props.store.olderChecked} onChange={this._toggleSorting} />
           </label>
         </div>
 
-        <div className='nav-newer'>
+        <div className='nav-radios nav-newer'>
           <label htmlFor='newer' className='sort-label check-newer'>
-            <span>newer </span>
+            <span>latest </span>
             <input type='checkbox' id='newer' value='newer' checked={this.props.store.newerChecked} onChange={this._toggleSorting} />
           </label>
         </div>
@@ -47,13 +47,11 @@ class Filter extends Component {
       this.props.store.randomChecked = false;
       this.props.store.newerChecked = true;
       this.props.store.olderChecked = false;
-      console.log('newer');
       break;
     case 'older':
       this.props.store.randomChecked = false;
       this.props.store.newerChecked = false;
       this.props.store.olderChecked = true;
-      console.log('older');
       break;
     default:
       this.props.store.randomChecked = true;

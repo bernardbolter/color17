@@ -28,10 +28,14 @@ export default class Nav extends React.Component {
             <span></span>
         </button>
         <div id="navigation" className={this.props.store.navMenuButton ? 'nav-menu nav-menu-open' : 'nav-menu' }>
-          <Links />
-          <Switch />
-          <Cities />
-          <Filter />
+          <div className="nav-links-cities-container">
+            <Links />
+            <Cities />
+          </div>
+          <div className="nav-switch-filter-container">
+            <Switch />
+            <Filter />
+          </div>
           <Search />
         </div>
       </section>

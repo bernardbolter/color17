@@ -11,7 +11,8 @@ class Art extends Component {
   render() {
     return (
       <div className="art">
-        <h1>Art</h1>
+        <img src={this.props.imageMedium} alt={this.props.title.rendered} />
+        <h1>{this.props.title.rendered}</h1>
       </div>
     );
   }
