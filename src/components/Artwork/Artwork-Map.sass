@@ -1,0 +1,64 @@
+@import '../../variables.scss'
+
+.artwork-map-container
+  position: fixed
+  top: 0
+  left: 0
+  height: 100vh
+  width: 100vw
+
+.map-art
+  width: 100px
+  padding: 5px
+  background-color: white
+
+  img
+    width: 100%
+
+  p
+    display: none
+    padding: 3px 0
+    margin: 0
+    text-align: center
+    color: $dark
+    font-size: 10px
+    line-height: 1.2
+
+.artwork-map-list
+  position: fixed
+  z-index: 1000
+  bottom: 0
+  width: 100%
+  overflow-x: scroll
+  background: white
+  margin: 0
+  padding: 0 0 20px
+  display: flex
+  flex-direction: row
+  flex-wrap: nowrap
+  justify-content: space-between
+  align-items: flex-end
+
+  a
+    width: 100%
+    cursor: pointer
+
+    svg
+      fill: $dark
+      margin: 2px 0 0 5%
+
+  img
+    width: 120px
+    margin: 10px 5px 3px
+    display: inline-block
+
+.artwork-map-list-text
+  width: 100%
+
+  p
+    font-size: 10px
+    line-height: 1.2
+    color: $dark
+    margin: 0
+    padding: 0
+    text-align: center

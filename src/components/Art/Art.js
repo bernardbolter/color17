@@ -9,10 +9,10 @@ import './Art.sass';
 class Art extends Component {
 
   render() {
+    console.log(this.props);
     return (
       <div className="art">
-        <img src={this.props.imageMedium} alt={this.props.title.rendered} />
-        <h1>{this.props.title.rendered}</h1>
+        <h1>Artwork</h1>
       </div>
     );
   }
