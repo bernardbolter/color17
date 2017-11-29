@@ -15,21 +15,30 @@
   overflow-x: scroll
   background: white
   margin: 0
-  padding: 0 0 20px
+  padding:  0 5px 3px
   display: flex
   flex-direction: row
   flex-wrap: nowrap
   justify-content: flex-start
   align-items: flex-end
+  border-top: 1px solid rgba(0,0,0,0.3)
+
+.map-pointer
+  width: 15px
+  height: 32px
+  cursor: pointer
+
+  svg
+    fill: $red
 
 .map-list-artwork
   width: 120px
-  padding: 5px
+  padding: 0 5px
   flex-shrink: 0
+  transition: width 0.5s ease-in-out
 
   svg
-    fill: $dark
-    margin: 2px 0 0 5%
+    fill: $less-dark
     cursor: pointer
 
   img
@@ -41,7 +50,7 @@
 
   p
     padding: 3px 0
-    margin: 0
+    margin: 0 0 0 5px
     text-align: center
     color: $dark
     font-size: 10px
@@ -50,15 +59,32 @@
 
 .map-art-focus
   width: 140px
+  transition: width 0.5s ease-in-out
+
+  .artwork-location-container
+    display: none
   p
     font-size: 11px
     font-weight: 800
+
+.artwork-location-container
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: center
+  margin: 5px 0
 
 .location-button
   display: block
 
 .location-button-hide
   display: none
+
+.map-list-locate-text
+  font-size: 9px
+  color: $dark
+  font-weight: 300
+  opacity: 0.7
 
 .artwork-map-list-text
   width: 100%

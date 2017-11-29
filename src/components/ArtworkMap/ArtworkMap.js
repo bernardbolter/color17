@@ -12,6 +12,8 @@ const Map = ReactMapboxGl({
   accessToken: "pk.eyJ1IjoiYmVtYWpvciIsImEiOiJjamFpamZpZnMxdmxpMnFsZGR3NGp0eTkwIn0.1UOGppfTHCtl0yA5lgrqKw"
 });
 
+
+
 @inject('store') @observer
 class ArtworkMap extends Component {
 
@@ -38,8 +40,8 @@ class ArtworkMap extends Component {
                 coordinates={{lng: art.artEdition, lat: art.contributor}}
                 anchor="bottom">
                 <a className="map-pointer" onClick={this._mapArtLink.bind(this, art.id, i)}>
-                  <svg width="15px" height="23px" viewBox="0 0 15 23" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.5,0 L7.5,0 C1.72230549,0 -1.86923434,6.24615623 1.01961292,11.2430812 L7.5,22.4861624 L13.9803871,11.2430812 C16.8692343,6.24615623 13.2776945,0 7.5,0 Z M7.5,11.2430812 L3.88243452,4.99692498 L11.0915398,4.99692498 L7.5,11.2430812 Z" />
+                  <svg width="15px" height="32px" viewBox="0 0 15 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.9375,29.6911084 L5.9375,15.7783915 C5.9375,15.2592177 5.53352844,14.7234762 5.03520419,14.5834286 L5.00415,14.5747012 C2.08900144,13.5462828 0,10.7670976 0,7.5 C0,3.35786437 3.35786437,0 7.5,0 C11.6421356,0 15,3.35786437 15,7.5 C15,10.7660227 12.9123728,13.5444541 9.99872687,14.5736856 L9.96757694,14.5824468 C9.46497787,14.723807 9.0625,15.2584794 9.0625,15.7783915 L9.0625,29.6911084 C9.0625,30.5447542 8.36294494,31.25 7.5,31.25 C6.63103881,31.25 5.9375,30.5520605 5.9375,29.6911084 Z M12.5988609,5.12277225 C11.2859542,2.30723494 7.93918919,1.08911206 5.12365188,2.40201869 C4.81081438,2.54789719 4.67546738,2.91976 4.82134588,3.2325975 C4.96722444,3.54543494 5.33908719,3.68078194 5.65192469,3.53490344 C7.84178706,2.51375381 10.4448266,3.46118275 11.4659761,5.65104513 C11.6118547,5.96388256 11.9837174,6.09922956 12.2965549,5.95335106 C12.6093924,5.80747256 12.7447394,5.43560975 12.5988609,5.12277225 Z" />
                   </svg>
                 </a>
               </Marker>
@@ -50,10 +52,11 @@ class ArtworkMap extends Component {
         <div ref="artworkListDiv" className="artwork-map-list">
           {this.props.store.filteredArt.slice().map((artwork, i) => (
               <div className={this._focusArtwork(artwork.id)} key={artwork.id}>
-                <a onClick={this._findArtOnMap.bind(this, artwork.artEdition, artwork.contributor, artwork.id)}>
-                  <svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7.5,0 C3.35784314,0 0,3.35784314 0,7.5 C0,11.6421569 3.35784314,15 7.5,15 C11.6421569,15 15,11.6421569 15,7.5 C15,3.35784314 11.6421569,0 7.5,0 Z M10.7407407,4.775651 L7.8939724,11.3030397 C7.852604,11.3979666 7.75897396,11.4585279 7.65639589,11.4585279 C7.65081959,11.4585279 7.64537296,11.4585279 7.63979666,11.4580091 C7.5308642,11.4510063 7.43788256,11.3766988 7.40727773,11.2716568 L6.61492375,8.55975724 L3.90302417,7.76740326 C3.79824152,7.73679842 3.72393402,7.64381679 3.71693122,7.53501401 C3.70992842,7.42595186 3.77204586,7.32441125 3.87203029,7.28083826 L10.3992893,4.43419961 C10.4970692,4.39179375 10.6107999,4.41293184 10.6862745,4.48853616 C10.7617491,4.56388111 10.7832763,4.67787115 10.7407407,4.775651 Z" />
+                <a className="artwork-location-container" onClick={this._findArtOnMap.bind(this, artwork.artEdition, artwork.contributor, artwork.id)}>
+                  <svg width="13px" height="13px" viewBox="0 0 13 13" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="0 5.92005556 13 0 7.0681 12.9881556 7.0681 5.92005556"></polygon>
                   </svg>
+                  <p className="map-list-locate-text">locate</p>
                 </a>
 
                 <Link to={{

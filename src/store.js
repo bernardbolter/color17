@@ -94,6 +94,15 @@ class Store {
   @action toggleCloseFilter = () => {
     this.closeFilterButton = !this.closeFilterButton;
   }
+
+  @action randomColor = () => {
+    let num = Math.floor(Math.random() * 2);
+    if (num === 0) {
+      return '#A41E22';
+    } else if (num === 1) {
+      return '#F09120';
+    }
+  }
 }
 
 export var storeData = new Store();
