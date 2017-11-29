@@ -26,6 +26,8 @@ class Store {
   // Map Variables
   @observable mapCenter = {lat: 37.800174, lng: -122.415987};
   @observable mapZoom = [11];
+  @observable currentArtwork = '';
+  @observable mapListWidth = 0;
 
   // Other Variables
   @observable currentCity = 'San Francisco';
