@@ -7,23 +7,6 @@
   height: 100vh
   width: 100vw
 
-.map-art
-  width: 100px
-  padding: 5px
-  background-color: white
-
-  img
-    width: 100%
-
-  p
-    display: none
-    padding: 3px 0
-    margin: 0
-    text-align: center
-    color: $dark
-    font-size: 10px
-    line-height: 1.2
-
 .artwork-map-list
   position: fixed
   z-index: 1000
@@ -36,25 +19,40 @@
   display: flex
   flex-direction: row
   flex-wrap: nowrap
-  justify-content: space-between
+  justify-content: flex-start
   align-items: flex-end
+
+.map-list-artwork
+  width: 120px
+  padding: 5px
+  flex-shrink: 0
+
+  svg
+    fill: $dark
+    margin: 2px 0 0 5%
+    cursor: pointer
+
+  img
+    width: 100%
 
   a
     width: 100%
     cursor: pointer
 
-    svg
-      fill: $dark
-      margin: 2px 0 0 5%
-      cursor: pointer
+  p
+    padding: 3px 0
+    margin: 0
+    text-align: center
+    color: $dark
+    font-size: 10px
+    line-height: 1.2
+    font-weight: 400
 
-.artwork-map-image
-  width: 120px
-  margin: 10px 5px 3px
-  display: inline-block
-
-.artwork-map-image-selected
-  width: 200px
+.map-art-focus
+  width: 140px
+  p
+    font-size: 11px
+    font-weight: 800
 
 .location-button
   display: block
