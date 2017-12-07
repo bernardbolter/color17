@@ -6,9 +6,15 @@
   z-index: 200
   top: 10px
   left: 5%
+  transition: left 0.5s ease-in-out
 
   svg
     width: 100%
+
+.logo-menu-open
+  @media (min-width: $nav-break)
+    left: calc(100% - 330px)
+    transition: left 0.5s ease-in-out
 
 .logo-tagline
   margin: 0

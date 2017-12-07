@@ -10,7 +10,7 @@ import './Logo.sass';
 export default class Nav extends React.Component {
   render() {
     return (
-        <section className="logo">
+        <section className={this.props.store.navMenuButton ? 'logo logo-menu-open' : 'logo'}>
           <Link to="/">
           <svg width="299px" height="26px" viewBox="0 0 299 26" version="1.1" xmlns="http://www.w3.org/2000/svg">
               <path d="M17.4550781,25 L10.8457031,25 L10.5117188,21.9941406 L7.57617188,21.9941406 L7.2421875,25 L0.650390625,25 L5.44921875,1.00585938 L12.65625,1.00585938 L17.4550781,25 Z M10.0371094,17.4941406 L9.05273438,8.49414062 L8.06835938,17.4941406 L10.0371094,17.4941406 Z" id="a" fill="#A41E22"></path>

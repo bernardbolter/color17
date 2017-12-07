@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import { observer, inject} from 'mobx-react';
 import _ from 'lodash';
 
-import Art from './../Art/Art.js';
 import ArtworkMap from './../ArtworkMap/ArtworkMap';
+import ArtworkList from './../ArtworkList/ArtworkList';
 
 import './Artwork.sass';
 
@@ -38,17 +38,12 @@ class Artwork extends Component {
         );
     } else if (this.props.store.switchButton === true) {
         return (
-          <div className="artwork-list">
-            {this.props.store.filteredArt.slice().map( art => (
-                <Art key={art.id} {...art} />
-              ))
-            }
-          </div>
+          <ArtworkList />
         );
     } else if (this.props.store.switchButton === false) {
-      return (
-        <ArtworkMap />
-      );
+        return (
+          <ArtworkMap />
+        );
     } else {
       return (
         <div className="no-artwork">

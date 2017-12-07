@@ -5,7 +5,7 @@ import 'normalize.css';
 
 import Logo from './components/Logo/Logo';
 import Nav from './components/Nav/Nav';
-import Footer from './components/Footer/Footer';
+// import Footer from './components/Footer/Footer';
 
 import { storeData } from './store';
 
@@ -16,7 +16,7 @@ import { RouterStore } from 'mobx-react-router';
 
 import Art from './components/Art/Art';
 import Artwork from './components/Artwork/Artwork';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 const browserHistory = createBrowserHistory();
 const routingStore = new RouterStore();
@@ -35,7 +35,6 @@ const Root = () => {
           <Nav />
           <Route exact path="/" component={Artwork} />
           <Route path="/:artwork" component={Art} />
-          <Footer />
         </div>
       </Router>
     </Provider>
@@ -43,4 +42,4 @@ const Root = () => {
 };
 
 ReactDOM.render(<Root />, document.getElementById('root'));
-registerServiceWorker();
+// registerServiceWorker();

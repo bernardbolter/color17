@@ -1,0 +1,111 @@
+@import '../../variables.scss'
+
+.artwork-list
+  background-color: $art-list-background
+  width: 90%
+  margin: 30px 5%
+  display: flex
+  flex-direction: column
+
+.art
+  width: 100%
+  margin-bottom: 60px
+  display: flex
+  flex-direction: column
+
+
+.art-odd
+  @media (min-width: $art-list-break)
+    flex-direction: row
+    align-items: center
+
+  .art-info
+    @media (min-width: $art-list-break)
+      width: 35%
+      margin: 0 0 0 5%
+
+.art-even
+  @media (min-width: $art-list-break)
+    flex-direction: row-reverse
+    align-items: center
+
+  .art-info
+    @media (min-width: $art-list-break)
+      width: 35%
+      margin: 0 5% 0 0
+
+.art-image
+  width: 100%
+  @media (min-width: $art-list-break)
+    width: 60%
+
+  img
+    width: 100%
+
+.art-info-container
+  width: 100%
+
+  @media (min-width: 500px)
+    width: 70%
+    margin: 0 15%
+
+  @media (min-width: $art-list-break)
+    width: 100%
+    margin: 0
+
+.art-info
+  margin: 0
+
+  h1
+    font-size: 18px
+    font-weight: 800
+    color: $dark
+    width: 100%
+    text-align: center
+    margin: 25px auto 20px
+
+  p
+    font-weight: 300
+    font-size: 14px
+    line-height: 1.5
+    color: $dark
+
+    @media (min-width: $art-list-break)
+      text-align: justify
+
+  h4
+    font-weight: 400
+    font-size: 11px
+    line-height: 1.3
+    margin: 0
+    padding: 0
+
+.art-line
+  height: 1px
+  width: 70%
+  background-color: $dark
+  margin: 20px 0
+  padding: 0
+  opacity: 0.5
+
+.art-to-map-link
+  display: flex
+  flex-direction: row
+  justify-content: flex-start
+  align-items: baseline
+  cursor: pointer
+  opacity: 0.7
+  margin: 10px 0 0 0
+
+  &:hover
+    opacity: 1
+
+  svg
+    fill: $dark
+    margin: 0 10px 0 0
+
+  p
+    margin: 0
+    padding: 0
+    font-weight: 400
+    color: $dark

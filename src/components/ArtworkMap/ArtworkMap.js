@@ -18,11 +18,11 @@ const Map = ReactMapboxGl({
 class ArtworkMap extends Component {
 
   componentDidMount() {
-    this.props.store.mapListWidth = this.refs.artworkListDiv.scrollWidth;
+    this.refs.artworkListDiv.scrollTo({ top: 0, left: this.props.store.scrollDistance, behavior: 'smooth'});
   }
 
   componentDidUpdate() {
-    this.props.store.mapListWidth = this.refs.artworkListDiv.scrollWidth;
+    this.refs.artworkListDiv.scrollTo({ top: 0, left: this.props.store.scrollDistance, behavior: 'smooth'});
   }
 
   render() {
@@ -39,11 +39,20 @@ class ArtworkMap extends Component {
                 key={art.id}
                 coordinates={{lng: art.artEdition, lat: art.contributor}}
                 anchor="bottom">
-                <a className="map-pointer" onClick={this._mapArtLink.bind(this, art.id, i)}>
-                  <svg width="15px" height="32px" viewBox="0 0 15 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.9375,29.6911084 L5.9375,15.7783915 C5.9375,15.2592177 5.53352844,14.7234762 5.03520419,14.5834286 L5.00415,14.5747012 C2.08900144,13.5462828 0,10.7670976 0,7.5 C0,3.35786437 3.35786437,0 7.5,0 C11.6421356,0 15,3.35786437 15,7.5 C15,10.7660227 12.9123728,13.5444541 9.99872687,14.5736856 L9.96757694,14.5824468 C9.46497787,14.723807 9.0625,15.2584794 9.0625,15.7783915 L9.0625,29.6911084 C9.0625,30.5447542 8.36294494,31.25 7.5,31.25 C6.63103881,31.25 5.9375,30.5520605 5.9375,29.6911084 Z M12.5988609,5.12277225 C11.2859542,2.30723494 7.93918919,1.08911206 5.12365188,2.40201869 C4.81081438,2.54789719 4.67546738,2.91976 4.82134588,3.2325975 C4.96722444,3.54543494 5.33908719,3.68078194 5.65192469,3.53490344 C7.84178706,2.51375381 10.4448266,3.46118275 11.4659761,5.65104513 C11.6118547,5.96388256 11.9837174,6.09922956 12.2965549,5.95335106 C12.6093924,5.80747256 12.7447394,5.43560975 12.5988609,5.12277225 Z" />
+                <div className="map-pointer" onClick={this._mapArtLink.bind(this, art.id, i)}>
+                  <svg style={{fill: this.props.store.randomColor()}} width="15px" height="22px" viewBox="0 0 15 22" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                      <ellipse cx="7.5" cy="7.23214286" rx="1.60714286" ry="1.60714286" />
+                      <path d="M7.5,21.8035714 L7.92857143,21.2142857 C8.22321429,20.8125 15,11.4642857 15,7.5 C15,3.375 11.625,0 7.5,0 C3.375,0 0,3.375 0,7.5 C0,11.4642857 6.77678571,20.8125 7.07142857,21.2142857 L7.5,21.8035714 Z M4.82142857,7.23214286 C4.82142857,5.75892857 6.02678571,4.55357143 7.5,4.55357143 C8.97321429,4.55357143 10.1785714,5.75892857 10.1785714,7.23214286 C10.1785714,8.70535714 8.97321429,9.91071429 7.5,9.91071429 C6.02678571,9.91071429 4.82142857,8.70535714 4.82142857,7.23214286 Z"/>
                   </svg>
-                </a>
+                  <Link to={{
+                      pathname: '/' + art.slug,
+                      slug: art.slug
+                    }}
+                    className={this._markerPopUp(art.id)}
+                    >
+                    <img src={art.thumbnailUrl} alt={art.title.rendered} />
+                  </Link>
+                </div>
               </Marker>
               ))
             }
@@ -82,8 +91,8 @@ class ArtworkMap extends Component {
 
   _mapArtLink(city, index) {
     this.props.store.currentArtwork = city;
-    let scrollDistance = index * 130;
-    this.refs.artworkListDiv.scrollTo({ top: 0, left: scrollDistance, behavior: 'smooth'});
+    this.props.store.scrollDistance = index * 130;
+    this.refs.artworkListDiv.scrollTo({ top: 0, left: this.props.store.scrollDistance, behavior: 'smooth'});
   }
 
   _findArtOnMap(longetude, latatude, city) {
@@ -96,6 +105,14 @@ class ArtworkMap extends Component {
       return 'artwork-map-image artwork-map-image-selected';
     } else {
       return 'artwork-map-image';
+    }
+  }
+
+  _markerPopUp(currentArtworkID) {
+    if (this.props.store.currentArtwork === currentArtworkID) {
+      return 'marker-pop-up marker-pop-up-on';
+    } else {
+      return 'marker-pop-up';
     }
   }
 

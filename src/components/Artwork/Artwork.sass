@@ -1,7 +1,11 @@
 @import '../../variables.scss'
 
+.container
+  background-color: $art-list-background
+  padding-bottom: 60px
+  height: calc(100vh - 60px)
+
 .artwork
-  background-color: white
   top: 40px
   transition: top 0.5s ease-in-out
   position: relative
@@ -18,3 +22,6 @@
 .artwork-drop
   top: 310px
   transition: top 0.5s ease-in-out
+
+  @media (min-width: $art-list-break)
+    top: 220px
