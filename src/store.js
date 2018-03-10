@@ -48,7 +48,7 @@ class Store {
       }
     } else {
     this.isLoading = true;
-    axios.get('http://artwork.bernardbolter.com/wp-json/wp/v2/artwork?per_page=100')
+    axios.get('https://www.bernardbolter.com/artwork/wp-json/wp/v2/artwork?per_page=100')
       .then(results =>  {
         this.artwork = results.data.filter(art => art.series === 'ach');
         console.log(this.art);
